@@ -2,15 +2,20 @@
 
 #TODO: params
 
+define("PHPRCDIR", dirname(__FILE__));
+
 if ( PHP_SAPI !== "cli" ) {
 	echo "Must be run in cli" . PHP_EOL;
 	exit(1);
 }
 
-if ( !is_dir($scriptDir="scripts") ){
+
+
+if ( !is_dir($scriptDir=(PHPRCDIR . "/scripts")) ){
 	echo $scriptDir . " is not a dir" . PHP_EOL;
 	exit(1);	
 }
+
 
 /**
 * Creates an sh function from a php file path
@@ -30,7 +35,7 @@ FUNC;
 * Checks if the the supplied path is a file of type $ofExtension
 */
 function isFile(string $file, string $ofExtension):bool{
-	return is_file($file) && $pathinfo($file)["extension"] === $ofExtension; 
+	return is_file($file) && pathinfo($file)["extension"] === $ofExtension; 
 }
 
 #todo: recurse
