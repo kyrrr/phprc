@@ -1,0 +1,6 @@
+{
+  "prefix": null,
+  "scripts_dir": "./scripts",
+  "verbose": true,
+  "src_path": "~/.phprc"
+}

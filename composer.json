@@ -1,0 +1,22 @@
+{
+    "name": "kyrre/phprc",
+    "description": "Configure php scripts as shell functions",
+    "type": "library",
+    "license": "TBD",
+    "authors": [
+        {
+            "name": "Kyrre Bugge",
+            "email": "kyrrebugge@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\Controller\\": "src/Controller",
+            "App\\Entity\\": "src/Entity",
+            "App\\Service\\Config\\": "src/Service/Config",
+            "App\\Service\\FunctionCreator\\": "src/Service/FunctionCreator"
+        }
+    }
+}
