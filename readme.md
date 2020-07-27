@@ -29,6 +29,8 @@ Run the generator: ```$ php public/index.php```
 
 Register the generated functions: ```$ source output/.phprc```
 
+If you get newline errors then you can thank Bill Gates. 
+
 Run your command: ```$ phprc_hello```
 
 #### Automate
