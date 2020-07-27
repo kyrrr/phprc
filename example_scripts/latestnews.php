@@ -1,4 +1,5 @@
 <?php
+
 class NewsAuth{
     protected $key;
     public function __construct(string $key=null)
@@ -267,26 +268,20 @@ class News{
         return new NewsSearchResult(false);
     }
 }
+$key = $argv[1];
 
-class DateReader{
-    static public function read(DateTimeInterface $time):string{
-        $now = new DateTimeImmutable();
-        $difference = $time->diff($now);
-        $readable = "";
-
-        #die;
-    }
+if ( !$key ){
+    die("Please provide a key..!");
 }
-#$url = "http://newsapi.org/v2/everything?q=bitcoin&from=2020-06-26&sortBy=publishedAt&apiKey=f8e9dbcc20404af3ba249f302afb1105";
 
-$term = $argv[1] ?? "everything";
-$speed = $argv[2] ?? 6;
+$term = $argv[2] ?? "everything";
+$speed = $argv[3] ?? 6;
 
-$auth = new NewsAuth("f8e9dbcc20404af3ba249f302afb1105");
+$auth = new NewsAuth($key);
 $search = new NewsSearch($term);
 $results = (new News($auth, $search))->getSearchResult()->getItems();
 
-$header = "/!\\ News Summary: {$search->getTerm()} /!\\";
+$header = "/!\\ News Ticker: {$search->getTerm()} /!\\";
 $sep = str_repeat("=", strlen($header));
 
 echo $sep . PHP_EOL;
@@ -295,7 +290,6 @@ echo $sep . PHP_EOL;
 
 /** @var NewsItem $result */
 foreach ($results as $result) {
-    #DateReader::read($result->getPublishedAt());die;
     echo "[" . $result->getPublishedAt()->format("Y-m-d H:i") . "] ({$result->getSource()}) " . ($result->getDescription()) . PHP_EOL;
     echo $result->getUrl() . PHP_EOL;
     echo PHP_EOL;
