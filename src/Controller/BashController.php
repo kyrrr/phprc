@@ -31,7 +31,7 @@ class BashController extends Controller
             $function = $creator->createFunction($path);
             $file .= $function->getOutput();
         }
-        $openFile = fopen($outputFile="./output/.phprc", "w+");
+        $openFile = fopen($outputFile=$this->config->getSrcPath(), "w+");
         $written = fwrite($openFile, $file);
         if ( $written ){
             $this->output("Wrote " . $written . " bytes to " . $outputFile);

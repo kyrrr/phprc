@@ -14,12 +14,10 @@ class PHPRCConfig implements PHPRCConfigInterface
 
     public function __construct(string $scriptsDir = null, string $prefix = null, string $srcPath = null, bool $verbose = false)
     {
-        $this
-            ->setScriptsDir($scriptsDir)
-            ->setPrefix($prefix)
-            ->setSrcPath($srcPath)
-            ->setVerbose($verbose)
-        ;
+        $this->scriptsDir = $scriptsDir;
+        $this->prefix = $prefix;
+        $this->srcPath = $srcPath;
+        $this->verbose = $verbose;
     }
 
     public function setScriptsDir(string $dir): PHPRCConfigInterface
