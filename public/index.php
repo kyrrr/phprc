@@ -1,5 +1,9 @@
 <?php
 
+#$flags = preg_grep("/(-{1,2}(?!-)(\w)(\s.+)?)/", $argv); // hmmmm
+#var_dump($flags);
+#die;
+
 define("WORKING_DIRECTORY", dirname(__DIR__));
 
 require WORKING_DIRECTORY . "/vendor/autoload.php";
